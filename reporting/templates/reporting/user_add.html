@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html' %}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+
+        <div class="col-4">
+            <h1>ADD USER</h1>
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <input type="submit" value="Add">
+            </form>
+        </div>
+        <div class="col-6">
+            <h1>USERS</h1>
+           <table class="table">
+               <tr>
+                   <td>Username Name</td>
+                    <td>Action</td>
+               </tr>
+               {%for userss in users%}
+               <tr>
+                   <td>{{userss.email}}</td>
+                 <td>{{userss.role}}</td>
+                   <td><a href="{%url 'userchange' userss.id %}" class="btn btn-outline-primary">Edit</a></td>
+                   <td><a href="{%url 'userdetails' userss.id %}" class="btn btn-outline-primary">View</a></td>
+               </tr>
+               {%endfor%}
+           </table>
+
+        </div>
+    </div>
+      <div class="col-2"></div>
+</div>
+{%endblock%}

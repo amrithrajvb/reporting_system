@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html'%}
+
+{%block body_block%}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <form action="" method="post">
+              <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Course Name: <strong>{{batch.course}}</strong></li>
+    <li class="list-group-item">Batch Name: <strong>{{batch.batch_name}}</strong></li>
+  </ul>
+</div>
+            </form>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

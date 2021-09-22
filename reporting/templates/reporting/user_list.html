@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html' %}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+           <table class="table">
+               <tr>
+                   <td>Username Name</td>
+                    <td>Action</td>
+               </tr>
+               {%for userss in users%}
+               <tr>
+                   <td>{{userss.email}}</td>
+                 <td>{{userss.role}}</td>
+                   <td><a href="{%url 'userchange' userss.id %}" class="btn btn-outline-primary">Edit</a></td>
+               </tr>
+               {%endfor%}
+           </table>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

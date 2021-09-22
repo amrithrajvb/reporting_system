@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html' %}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+           <table class="table">
+               <tr>
+                   <td>Course Name</td>
+                    <td>Action</td>
+               </tr>
+               {%for course in object_list%}
+               <tr>
+                   <td>{{course.course_name}}</td>
+                   <td><a href="{%url 'coursechange' course.id %}" class="btn btn-outline-primary">Edit</a></td>
+                   <td><a href="{%url 'coursedetails' course.id %}" class="btn btn-outline-primary">View</a></td>
+               </tr>
+               {%endfor%}
+           </table>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}
