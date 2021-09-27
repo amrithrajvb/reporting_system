@@ -90,3 +90,15 @@ class Batch(models.Model):
 
     def __str__(self):
         return self.batch_name
+
+class Timesheet(models.Model):
+    user=models.CharField(max_length=120)
+    batch=models.ForeignKey(Batch,on_delete=models.CASCADE)
+    topic=models.CharField(max_length=120)
+    date=models.DateField(auto_now_add=True)
+    verified=models.BooleanField(default=False)
+    options=(("in_progress","in_progress"),("completed","completed"))
+    topic_status=models.CharField(max_length=120,choices=options,default="in_progress")
+
+    def __str__(self):
+        return self.user

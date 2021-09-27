@@ -19,18 +19,11 @@
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light">Management Console</div>
                 <div class="list-group list-group-flush">
-                    {%if request.user.is_admin%}
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'adminhome' %}">Dashboard</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'course' %}">Course</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'adduser' %}">User</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'batch' %}">Batch</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'usertimesheetlist' %}">Timesheets</a>
-                    {%else%}
-
-                       <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'userhome' %}">Dashboard</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'userhome' %}">Dashboard</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'addtimesheet'%}">Add Timesheet</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{%url 'usertimesheetlist' %}">View Timesheet</a>
-                    {%endif%}
+
+
 
                 </div>
             </div>

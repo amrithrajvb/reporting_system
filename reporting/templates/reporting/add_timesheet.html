@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html' %}
+
+{%block body_block%}
+<div class="container">
+    <div class="row">
+ <div class="col-4">
+             <h1>ADD TimeSheet</h1>
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form.as_p}}
+                <input type="submit" value="Add">
+            </form>
+        </div>
+        <div class="col-8">
+
+           <table class="table">
+               <h1>My Timesheets</h1>
+               <tr>
+                   <td>Batch_Name</td>
+                    <td>Topic</td>
+                   <td>Topic_Status</td>
+                   <td>Date</td>
+                   <td>verification</td>
+
+                   <td>Action</td>
+
+               </tr>
+               {%for timesheet in timesheets%}
+               <tr>
+                   <td>{{timesheet.batch}}</td>
+                 <td>{{timesheet.topic}}</td>
+                   <td>{{timesheet.topic_status}}</td>
+                          <td>{{timesheet.date}}</td>
+                   <td>{{timesheet.verified}}</td>
+                   {%if not timesheet.verified%}
+                   <td>
+
+                       <a href="{%url 'changeusertimesheet' timesheet.id%}" class="btn btn-outline-primary border rounded-pill">Edit</a></td>
+              {%endif%}
+               </tr>
+               {%endfor%}
+           </table>
+
+        </div>
+
+
+    </div>
+</div>
+
+{%endblock%}
